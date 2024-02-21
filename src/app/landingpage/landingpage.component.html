@@ -1,0 +1,62 @@
+
+<p>landingpage works!</p>
+
+<input type="text" placeholder="First Name" class="{{styles}}" [(ngModel)]="first_name">
+<input type="text" placeholder="Email Address" class="{{styles}}" [(ngModel)]="email">
+<input type="text" placeholder="Phone Number" class="{{styles}}" [(ngModel)]="phone_number">
+<input type="text" placeholder="Address" class="{{styles}}" [(ngModel)]="address">
+<input type="text" placeholder="Last Name" class="{{styles}}" [(ngModel)]="last_name">
+<input type="text" placeholder="Gender" class="{{styles}}" [(ngModel)]="gender">
+<!-- <img src="../../assets/nigeriaFlag.jpg" alt=""> -->
+
+<!-- <button (click)="addContent()">Add</button> -->
+<button (click)="addContent()">Add</button>
+
+<div *ngFor="let obj of contactArray, let i=index">
+    <p>{{obj.firstname}}</p>
+    <!-- <p>{{obj.lastname}}</p>
+    <p>{{obj.address}}</p>
+    <p>{{obj.phonenumber}}</p>
+    <p>{{obj.gender}}</p>
+    <p>{{obj.email}}</p> -->
+
+
+    <div>
+        <button data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+        <button (click)="del(i)">Delete</button>
+        
+        <button (click)="viewMe(i) ">View</button>
+
+        
+        
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Edit student details</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="number" class="form-control my-1" value="newId" placeholder="Enter the starting value" [(ngModel)]="newId">
+                    <input type="text" class="form-control my-1" placeholder="new details" [(ngModel)]="newFirstname">
+                    <input type="text" class="form-control my-1" placeholder="new details" [(ngModel)]="newMail">
+                    <input type="text" class="form-control my-1" placeholder="new details" [(ngModel)]="newPhoneNumber">
+                    <input type="text" class="form-control my-1" placeholder="new details" [(ngModel)]="newAddress">
+                    <input type="text" class="form-control my-1" placeholder="new details" [(ngModel)]="newLastname">
+                    <input type="text" class="form-control my-1" placeholder="new details" [(ngModel)]="newGender">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="editDetails(i)">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    
+</div>
+
+
+
+

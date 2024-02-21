@@ -1,0 +1,40 @@
+<p>reactiveform works!</p>
+<!-- <div class="col-5 mx-auto shadow">
+    <div class="row">
+        <div class="p-2">
+            <form>
+                <input type="text" class=".form-control my-2" placeholder="" name="Firstname">
+                <input type="text" class=".form-control my-2" placeholder="" name="Email">
+                <input type="text" class=".form-control my-2" placeholder="" name="Password">
+                <button class="btn btn-success w-100"></button>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+<div class="container">
+    
+    <div class="col-6 mx-auto shadow">
+        <h3 class="text-center text-primary">Reactive Form</h3>
+        <form [formGroup]="formone">
+            <input type="text" class="form-control my-2"  placeholder="Firstname" formControlName="firstname" [class.is-valid]="formone.get('firstname')?.valid && formone.get('firstname')?.dirty" [class.is-invalid]="formone.get('firstname')?.invalid && formone.get('firstname')?.dirty">
+            <div *ngIf="formone.get('firstname')?.invalid && formone.get('firstname')?.touched">
+                <span class="text-danger" *ngIf="formone.get('firstname')?.errors?.['required']">This field must not be empty</span>
+            </div>
+            <input type="email" class="form-control my-2" placeholder="Email" formControlName="email" [class.is-valid]="formone.get('email')?.valid && formone.get('email')?.dirty" [class.is-invalid]="formone.get('email')?.invalid && formone.get('email')?.dirty">
+            <div *ngIf="formone.get('email')?.invalid && formone.get('email')?.touched">
+                <span class="text-danger" *ngIf="formone.get('email')?.errors?.['required']">This field must not be empty</span>
+                <span class="text-danger" *ngIf="formone.get('email')?.errors?.['email']">must be a valid email</span>
+                <!-- <span class="text-danger" *ngIf="formone.get('email')?.errors?.['minlength']">The minimum length is 10</span> -->
+                <span class="text-danger" *ngIf="formone.get('email')?.errors?.['maxlength']">reach the expected length</span>
+            </div>
+
+
+            <input type="text" class="form-control my-2" placeholder="Password" formControlName="password" >
+            <button class="btn btn-primary w-100" [disabled]="formone.invalid">Sign up</button>
+
+        </form>
+
+        <!-- <div class="text-danger text-center">{{message}}</div> -->
+    </div>
+</div>

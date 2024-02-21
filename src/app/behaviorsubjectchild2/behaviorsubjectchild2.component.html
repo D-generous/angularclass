@@ -1,0 +1,11 @@
+<p>behaviorsubjectchild2 works!</p>
+
+<div class="shadow" *ngIf="behavior_obj.age">
+    <div class="col-5">
+        <input type="text" value="{{behavior_obj.firstname}}" [(ngModel)]="behavior_obj.firstname" name="firstname">
+        <input type="text" value="{{behavior_obj.lastname}}" [(ngModel)]="behavior_obj.lastname">
+        <input type="text" value="{{behavior_obj.email}}" [(ngModel)]="behavior_obj.email">
+        <input type="text" value="{{behavior_obj.age}}" [(ngModel)]="behavior_obj.age">
+        <input type="submit" value="submit" (click)="changelist(behavior_obj)">
+    </div>
+</div>

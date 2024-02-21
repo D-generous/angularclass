@@ -1,0 +1,42 @@
+<p>templatedrivenform works!</p>
+
+<div class="container">
+    
+    <div class="col-6 mx-auto shadow">
+        <h3 class="text-center text-primary">Template Driven Form</h3>
+        <div class="p-3">
+            <form #fgroup = 'ngForm'>
+                <input type="text" class="form-control my-2"  placeholder="Firstname" [(ngModel)]="firstname" name="firstname" #fname="ngModel" required [class.is-valid]="fname.valid && fname.dirty" [class.is-invalid]="fname.invalid && fname.touched" minlength="5">
+
+                <div *ngIf="fname.invalid && fname.touched">
+                <span class="text-center text-danger" *ngIf="fname?.errors?.['required']">This field is required</span>
+                <span class="text-center text-danger" *ngIf="fname?.errors?.['minlength']">The minimum length required is 5</span>
+                </div>
+                <!-- <div>{{fname.untouched}}</div> -->
+                <!-- <div>{{fname.pristine}}</div> -->
+                <!-- <div>{{fname.touched}}</div> -->
+                <!-- <div>{{fname.dirty}}</div> -->
+                <input type="text" class="form-control my-2" placeholder="City" [(ngModel)]="city" name="city">
+                <input type="checkbox" [(ngModel)] ="checkme" name="checkme" #checkMe ='ngModel' required [class.is-invalid]="checkMe.invalid">
+                <div *ngIf="checkMe.invalid">
+                    <span *ngIf="checkMe?.errors?.['required']">This box must be checked</span>
+                </div>
+                <input type="email" class="form-control my-2" [(ngModel)]="email" name="email" #mail="ngModel" required [class.is-valid]="mail.valid && mail.dirty" [class.is-invalid]="mail.invalid && mail.touched" id="" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+                <div *ngIf="mail.invalid && mail.untouched">
+                    <span class="text-danger" *ngIf="mail?.errors?.['pattern']">It must be in this format "...........&#64;example.com"</span>
+                </div>
+                <button class="btn btn-primary w-100" (click)="submit()" [disabled]="fgroup.invalid">Submit</button>
+            </form>
+        </div>
+        
+        
+        <div>
+
+            <!-- <button class="btn btn-primary w-100" (click)="checkMe()" [disabled]="checkme.invalid">Submit</button> -->
+
+        </div>
+
+
+    </div>
+</div>
+

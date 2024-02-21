@@ -1,0 +1,14 @@
+<p>signin works!</p>
+
+<div class="container">
+    
+    <div class="col-6 mx-auto shadow">
+        <h3 class="text-center text-primary">Sign in page</h3>
+        <input type="email" class="form-control my-2" placeholder="Email" [(ngModel)]="email">
+        <input type="text" class="form-control my-2" placeholder="Password" [(ngModel)]="password">
+
+        <button class="btn btn-secondary w-100" (click)="signin()">Login in</button>
+
+        <div class="text-danger text-center">{{message}}</div>
+    </div>
+</div>
